@@ -4,7 +4,7 @@ const Button = ({text}) => {
     const doit = (e) =>{console.log(e);}
     return (
         <div>
-            <button onClick={doit}>{text}</button>           
+            <button className='btn' onClick={doit}>{text}</button>           
         </div>
     )
 }
@@ -15,8 +15,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    text: PropTypes.string,
-    func: PropTypes.func
+    text: PropTypes.string
 }
 
 export default Button
