@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Button = ({text}) => {
-    function doit(){console.log("CLICKED");}
+    const doit = (e) =>{console.log(e);}
     return (
         <div>
             <button onClick={doit}>{text}</button>           
