@@ -5,7 +5,7 @@ import Tasks from './components/Tasks';
 import {useState} from 'react';
 
 function App() {
-  const [tasks, setTasks] = useState([
+  var [tasks, setTasks] = useState([
     {
         id: 1,
         text: 'Doctors Appointment',
@@ -23,11 +23,45 @@ function App() {
         reminder: false
     }
 ])
+
+const deleteTask = (id, task) => {
+  var holder = [];
+  setTimeout(() => {
+    var removeIcons = document.querySelectorAll('.goog');
+
+    removeIcons.forEach((element) => {
+      element.addEventListener('click', function(){
+        var taskDiv = element.closest('div');
+        var taskText = element.closest('h3');
+        function into(){
+          
+        }
+        for(var loop = tasks.length - 1; loop > -1; loop--){
+          console.log("HOW: ", tasks[loop]);
+          console.log("TASKS: ", tasks);
+          if (tasks[loop].text == taskText.outerText){
+            var indexed = tasks.indexOf(tasks[loop]);
+            tasks.splice(indexed, 1);
+            taskDiv.remove();
+            setTasks(tasks);
+            console.log("DOWN: ", tasks);
+            break;
+          }else{
+            console.log("In Else: ");
+            continue;
+          }
+        }
+      
+      }, false);
+    });
+
+}, 200);
+}
+
   return (
     <div className="container">
       <Header />
-      <Button />
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} ondelete={deleteTask()}/>
     </div>
   );
 }

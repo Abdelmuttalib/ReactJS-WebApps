@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types';
 
-const Button = ({text}) => {
+const Button = ({text, color}) => {
     const doit = (e) =>{console.log(e);}
-    return (
-        <div>
-            <button className='btn' onClick={doit}>{text}</button>           
-        </div>
-    )
+    return <button className='btn' style={{backgroundColor: color}}>{text}</button>
 }
 
 Button.defaultProps = {
-    text: 'ADD',
-    func: 'doit'
+    text: 'Add',
+    color: 'black'
 }
 
 Button.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    color: PropTypes.string
 }
 
 export default Button
