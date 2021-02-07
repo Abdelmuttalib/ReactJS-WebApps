@@ -1,7 +1,10 @@
 import Header from './components/Header';
 import './index.css';
 import Tasks from './components/Tasks';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AddTask from './components/AddTask';
+import Footer from './components/Footer';
+import About from './components/About';
 import {useState, useEffect} from 'react';
 /** import {useState, useEffect} from 'react'; */
 
@@ -122,10 +125,10 @@ const toggleReminder = async (id) => {
   },
   body: JSON.stringify(updTask)})
 
-  // const data = await res.json();
+  const data = await res.json();
   // console.log("DATA: ",data);
-  // could also use: data as the updated object
-  setTasks(tasks.map(task => task.id === id ? updTask : task))
+  // could also use: updTask as the updated object
+  setTasks(tasks.map(task => task.id === id ? {...task, reminder: data.reminder} : task))
 }
 
 // Handle Submit Of Add Task Form
@@ -135,11 +138,21 @@ const toggleReminder = async (id) => {
 
 
   return (
+    <Router>
     <div className="container">
       <Header onAddClicked={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-      {showAddTask ? <AddTask onAdd={addTask}/> : ''}
-        {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'Nothing To Show'}
+      
+        <Route path='/' exact render={(props) => (
+          <>
+          {showAddTask ? <AddTask onAdd={addTask}/> : ''}
+          {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'Nothing To Show'}
+          <Footer />
+          </>
+          )}/>
+        <Route path='/about' component={About}/>
+        
     </div>
+    </Router>
   );
 }
 

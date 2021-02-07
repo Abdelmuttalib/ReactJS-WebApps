@@ -3,13 +3,13 @@
     {
       "text": "نيبنشص",
       "day": "نسلنثىلنم",
-      "reminder": false,
+      "reminder": true,
       "id": 3
     },
     {
       "text": "ONE",
       "day": "OONEE",
-      "reminder": true,
+      "reminder": false,
       "id": 6
     },
     {
