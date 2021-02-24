@@ -7,7 +7,8 @@ body {
     padding-left: 30px;
   }
   
-  .board-row:after {    clear: both;
+  .board-row:after {
+    clear: both;
     content: "";
     display: table;
   }
