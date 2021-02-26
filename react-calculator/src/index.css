@@ -71,6 +71,7 @@ body{
 }
 .textArea{
   background: #2B293D;
+  color: #59C3C3;
   text-shadow: 0 0 5px rgba(89, 195, 195, 0.5);
   display: flex;
   justify-content: flex-end;
