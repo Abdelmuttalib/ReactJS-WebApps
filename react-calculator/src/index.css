@@ -70,6 +70,17 @@ body{
   padding: 10px;
 }
 .textArea{
+  background: #2B293D;
+  text-shadow: 0 0 5px rgba(89, 195, 195, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 29px;
+  box-sizing: border-box;
+  height: 20%;
+  overflow: hidden;
+  font-size: 24px;
+  position: relative;
     /*
     resize: none;
     border-radius: 6px;
@@ -84,6 +95,29 @@ body{
     font-family: 'Roboto';
     font-weight: 300;*/
 }
+.textArea::after {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+50,e1e1e1+51,f6f6f6+100;White+Gloss+%231 */
+    background: white;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, white 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, white 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, white 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6', GradientType=0);
+    /* IE6-9 */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    height: 100%;
+    mix-blend-mode: overlay;
+    display: block;
+    z-index: 2;
+  }
 .button{
     width: 50px;
     height: 50px;
