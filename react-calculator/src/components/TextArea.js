@@ -1,9 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
 
-const TextArea = ({ onChange }) => {
+const TextArea = ({ onChange, toShow }) => {
     return (
         <textarea 
+        value={toShow}
         className='textArea' 
         onChange={e => {
             onChange(e.target.value);

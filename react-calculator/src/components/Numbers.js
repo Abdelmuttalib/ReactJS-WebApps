@@ -2,17 +2,17 @@ import React from 'react'
 import Button from './Button';
 
 const Numbers = ({ onClick }) => {
+    const renderButton = () => {
+        const buttonValues = '7894561230.=';
+        var numbers = [];
+        for(const i of buttonValues){
+             numbers.push(<Button key={numbers.length} value={i} onClick={(value) => onClick(value)}/>);
+        }
+        return numbers;
+    }
     return (
         <div className='numbers'>
-            <Button value='7' onClick={(value) => onClick(value)}/>
-            <Button value='8' onClick={(value) => onClick(value)}/>
-            <Button value='9' onClick={(value) => onClick(value)}/>
-            <Button value='4' onClick={(value) => onClick(value)}/>
-            <Button value='5' onClick={(value) => onClick(value)}/>
-            <Button value='6' onClick={(value) => onClick(value)}/>
-            <Button value='1' onClick={(value) => onClick(value)}/>
-            <Button value='2' onClick={(value) => onClick(value)}/>
-            <Button value='3' onClick={(value) => onClick(value)}/>
+            {renderButton()}
         </div>
     )
 }

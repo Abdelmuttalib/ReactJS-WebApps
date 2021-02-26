@@ -2,21 +2,27 @@ import React from 'react';
 import TextArea from './components/TextArea';
 import Operators from './components/Operators';
 import Numbers from './components/Numbers';
-import Other from './components/Other';
 import { useState } from 'react';
 
 const Calculator = () => {
     const [areaValue, setAreaValue] = useState('');
     const onAreaChange = (e) => {
         setAreaValue(e);
+        console.log(e);
     }
-    const calculate = (kk) => {
+    const calculate = (elementClicked) => {
         console.log("Calculate");
-        console.log("Value: ", kk.target.innerHTML);
+        console.log("Value: ", elementClicked.target.innerText);
+        const valueClicked = elementClicked.target.innerText;
+        const currentShownValue = areaValue;
+        const latestValue = currentShownValue.concat(valueClicked);
+        console.log("areaC: ", currentShownValue);
+        console.log("Latest: ", latestValue);
+        setAreaValue(latestValue);
     }
     return (
         <div className='calculator'>
-            <TextArea onChange={e => {
+            <TextArea toShow={areaValue} onChange={e => {
                 onAreaChange(e);
             }}/>
             <Operators onClick={(value) => {
@@ -25,10 +31,6 @@ const Calculator = () => {
             }}/>
             <Numbers onClick={(value) => {
                 console.log("FOW")
-                calculate(value);
-            }}/>
-            <Other onClick={(value) => {
-                console.log("OTHER: ");
                 calculate(value);
             }}/>
         </div>
