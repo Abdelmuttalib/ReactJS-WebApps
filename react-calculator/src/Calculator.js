@@ -22,7 +22,11 @@ const Calculator = () => {
             }
             const latestValue = currentShownValue + valueClicked;
             setAreaValue(latestValue);
-        }else{
+        }else if(valueClicked == '='){
+            const evaluate = eval(currentShownValue);
+            setAreaValue(evaluate.toString());
+        }
+        else{
             const latestValue = currentShownValue + valueClicked;
             console.log(typeof(valueClicked));
             setAreaValue(latestValue);
