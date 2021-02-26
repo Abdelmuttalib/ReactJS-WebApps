@@ -22,6 +22,7 @@ App{
   border-radius: 8px;
 }
 .textArea{
+    resize: none;
     border-radius: 6px;
     position: relative;
     width: 210px;

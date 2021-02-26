@@ -1,14 +1,12 @@
 import React from 'react';
 
-const TextArea = ({ onChange, toShow }) => {
+const TextArea = ({ toShow }) => {
     return (
-        <textarea 
+        <textarea readOnly
         value={toShow}
         className='textArea' 
-        onChange={e => {
-            onChange(e.target.value);
-        }}>
-
+        >
+            {toShow}
         </textarea>
     )
 }

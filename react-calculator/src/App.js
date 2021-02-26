@@ -1,6 +1,5 @@
 import React from 'react';
 import Calculator from './Calculator';
-import { useState } from 'react';
 
 const App = () => {
     return (

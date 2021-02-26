@@ -6,33 +6,40 @@ import { useState } from 'react';
 
 const Calculator = () => {
     const [areaValue, setAreaValue] = useState('');
-    const onAreaChange = (e) => {
-        setAreaValue(e);
-        console.log(e);
-    }
+
     const calculate = (elementClicked) => {
-        console.log("Calculate");
-        console.log("Value: ", elementClicked.target.innerText);
         const valueClicked = elementClicked.target.innerText;
         const currentShownValue = areaValue;
-        const latestValue = currentShownValue.concat(valueClicked);
-        console.log("areaC: ", currentShownValue);
-        console.log("Latest: ", latestValue);
-        setAreaValue(latestValue);
+        if(valueClicked === '+' || valueClicked === '-' ||
+        valueClicked === '*' || valueClicked === '/' || 
+        valueClicked === '.'){
+            if(currentShownValue.slice(-1) == '+' ||
+               currentShownValue.slice(-1) == '-' || 
+               currentShownValue.slice(-1) == '*' ||
+               currentShownValue.slice(-1) == '/' ||
+               currentShownValue.slice(-1) == '.'){
+                return;
+            }
+            const latestValue = currentShownValue + valueClicked;
+            setAreaValue(latestValue);
+        }else{
+            const latestValue = currentShownValue + valueClicked;
+            console.log(typeof(valueClicked));
+            setAreaValue(latestValue);
+        }
     }
     return (
         <div className='calculator'>
-            <TextArea toShow={areaValue} onChange={e => {
-                onAreaChange(e);
-            }}/>
+            <TextArea toShow={areaValue}/>
+
             <Operators onClick={(value) => {
-                console.log("OPERATORS: ");
                 calculate(value);
             }}/>
+            
             <Numbers onClick={(value) => {
-                console.log("FOW")
                 calculate(value);
             }}/>
+
         </div>
     );
 }
