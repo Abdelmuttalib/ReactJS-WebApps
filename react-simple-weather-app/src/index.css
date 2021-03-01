@@ -1,7 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@1&display=swap');
 body{
-  background: white;
+  background-image: url('https://images.wallpaperscraft.com/image/forest_trees_fog_110131_1920x1080.jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Roboto Condensed';
+  margin-top: -50px;
+  transition: all 0.25s linear;
 }
 .icon{
   width: 40px;
   height: 40px;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.searchBar{
+  width: 300px;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 1em;
+  float: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-family: 'Roboto';
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.searchBar::-webkit-input-placeholder {
+   color: #65737e;
+}
+.searchBar:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.searchBar::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+.searchBar:-ms-input-placeholder {
+   color: #65737e;
+}
+.searchBar:hover, .searchBar:focus, .searchBar:active{
+    outline:none;
+    background: #ffffff;
+}
+.searchBar{
+  width: 300px;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: center;
+  color: #262626;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+
+  animation: 1s ease 0s 1 slideInFromLeft;
+}
+.idleMessage{
+  opacity: 0.5;
+  margin: 2em;
+  font-style: italic;
+  font-size: 0.9em;
+  animation: 1s ease 0s 1 slideInFromLeft;
+  transition: all 0.25s linear;
+}
+.cardContainer{
+  width: 300px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 2em;
+  box-shadow: 10px 10px 50px rgb(15, 15, 15);
+  border-radius: 10px;
+  padding: 1em;
+  background: transparent;
+
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+.cardContainer:hover{
+  background: #2b303b;
+  color:azure;
+  transition: all 1s;
+}
+.cardCity{
+  font-size: 1.5em;
+  font-weight: 800;
+  margin: auto;
+}
+.cardPic{
+  width: 180px;
+  height: 180px;
+}
+.cardIconContainer{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: end;
+  margin-left: -50px;
+}
+.cardMoreInfo{
+  margin: 5px;
+}
+.cardIcon{
+  width: 28px;
+  height: 28px;
+}
+.cardIconText{
+  margin: 5px;
+  font-weight: 700;
+  font-size: 1em;
+}
+.unit{
+  font-weight: 100;
+  font-size: 0.6em
+}
+.cardCelius{
+  font-size: 3em;
+  font-style: italic;
+  font-weight: 800;
+  margin: auto;
+  margin-top: 40px;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import { useState, useEffect } from 'react';
+import WeatherCard from './WeatherCard.js';
 
 const App = () => {
   const [weatherSummary, setWeatherSummary] = useState({});
@@ -21,11 +22,12 @@ const App = () => {
       const country = data.sys.country;
       console.log("COUNTRY: ", country);
       const temperature = data.main.temp;
+      const pressure = data.main.pressure;
       const wind = data.wind.speed;
       const weatherDescription = data.weather[0].main;
       const iconCode = data.weather[0].icon;
       const icon = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
-      setWeatherSummary({city: cityName, temp: temperature, windSpeed: wind, weatherStatus: weatherDescription, icon: icon});
+      setWeatherSummary({city: cityName, temp: temperature, windSpeed: wind, weatherStatus: weatherDescription, pressure: pressure, icon: icon});
       setCityFound({...cityFound, status: true});
     })
     .catch(err => {
@@ -69,10 +71,10 @@ const App = () => {
   // `http://openweathermap.org/img/wn/{}@2x.png`
   return(
     <div>
-      <form onSubmit={input => handleSubmit(input)}>
-      <input type='text' placeholder='Search By City'></input>
+      <form onSubmit={input => handleSubmit(input)} className='searchForm'>
+      <input type='text' placeholder='Search By City' className='form-control searchBar'></input>
       </form>
-      {cityFound.status ? <img className='icon' src={weatherSummary.icon} alt='weather icon'/> : <p>{cityFound.message == '' ? 'Nothing To Show' : cityFound.message}</p>}
+      {cityFound.status ? <WeatherCard weatherInfo={weatherSummary}/> : <p className='idleMessage'>{cityFound.message == '' ? 'Nothing To Show' : cityFound.message}</p>}
     </div>
   );
 }
