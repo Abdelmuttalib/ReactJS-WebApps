@@ -10,7 +10,7 @@ const App = () => {
   const [cityFound, setCityFound] = useState({message: '', status: false});
 
   const getData = async (city) => {
-  const fetchData = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8384494f1e366e252fd02bcff3d957bc`)
+  const fetchData = await fetch(``)
     .then(async (response) => {
       if(!response.ok){
         throw Error("Error, Couldn't find City " + `\"${city}\"`);
