@@ -1,3 +1,10 @@
+Simple React Weather App Using 'https://openweathermap.org' API.
+Search By City Name to Find Weather Information
+![react-simple-weather-app (1)](https://user-images.githubusercontent.com/54845047/109557647-38643200-7a8d-11eb-8461-5059f7a1b82e.png)
+![react-simple-weather-app (2)](https://user-images.githubusercontent.com/54845047/109557655-3a2df580-7a8d-11eb-917a-90337dd74a63.png)
+![react-simple-weather-app (3)](https://user-images.githubusercontent.com/54845047/109557659-3ac68c00-7a8d-11eb-9ec1-e8f858c8ebda.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
