@@ -5,22 +5,21 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 
 
-const Product = ({ name, price, image, content }) => {
+const Product = ({ id, name, price, image, content }) => {
 
     const useStyles = makeStyles({
         root: {
-            maxWidth: 345,
+            maxWidth: 390,
         },
         media: {
-            height: 140
+            height: 190,
         }
     });
     const classes = useStyles();
     console.log("CLASS: ", classes);
 
     return (
-        <>
-            
+        <> 
         <Card elevation={4} className={classes.root}>
           <CardActionArea>
             <CardMedia
@@ -37,10 +36,13 @@ const Product = ({ name, price, image, content }) => {
             </CardContent>
           </CardActionArea>
           <Typography variant="h6" align="center" gutterBottom display="block">
-          {price}
+          ${price}
           </Typography>
           <CardActions>
             <Button 
+            onClick={() => {
+              console.log("Added to Cart", `localhost:5000/product/${id}`);
+            }}
             style={{width: '100%', height: '3em', margin: 'auto', marginBottom: '0.7em', marginTop: '0.5em'}} 
             size="large" 
             color="secondary" 

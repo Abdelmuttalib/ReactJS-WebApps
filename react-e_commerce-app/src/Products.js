@@ -3,21 +3,22 @@ import Product from './Product';
 
 
 const Products = ({ products }) => {
-    console.log("P: ", products);
-    console.log(typeof(products))
+
     
     const check = async () => {
 
     }
     return (
         <>
-            {products.map((product) => {
+            {products.map((product) => (
             <Product 
-            name={product.name}
+            key={product.id}
+            id={product.id}
+            name={product.title}
             price={product.price}
-            image={product.imageUrl}
-            content={product.content}/>
-            })}
+            image={product.image}
+            content={product.description}/>
+            ))}
         </>
     )
 }
