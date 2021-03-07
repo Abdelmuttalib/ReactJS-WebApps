@@ -2,7 +2,10 @@ import React from 'react';
 import './index.css';
 import { useState, useEffect } from 'react';
 import NavBar from './NavBar';
+import UpperPart from './UpperPart';
 import Products from './Products';
+import { Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
 const App = () => {
 
@@ -25,11 +28,20 @@ const App = () => {
       getData();
     }, []);
 
+    const useStyles = makeStyles({
+      sectionContainer: {
+        paddingTop: '30'
+      }
+    });
+
+    const classes = useStyles();
+
 
     return (
         <>
         <NavBar />
-        <Container className="products">
+        <UpperPart />
+        <Container maxWidth='lg' className={classes.sectionContainer}>
         <Products products={productsData}/>
         </Container>
         </>
