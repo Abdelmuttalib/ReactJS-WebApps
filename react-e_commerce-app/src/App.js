@@ -23,6 +23,31 @@ const App = () => {
 
         const response = await fetch('http://localhost:5000/product');
         const data = await response.json();
+        console.log("Data: ", data);
+
+        const des = await fetch('http://localhost:5000/users');
+        const users = await des.json();
+        console.log("Users: ", users);
+
+        const lek = await fetch('http://localhost:5000/cart');
+        const carts = await lek.json();
+        console.log("Carts: ", carts);
+
+        for(let i = 0; i < data.length; i++){
+          for(let j = 0; j < users.length; j++){
+            for(let s = 0; s < carts.length; s++){
+              const one = data[i].id;
+              const two = users[j].id;
+              const three = carts[s].id;
+
+              if(one == two && two == three && one == three){
+                console.log("A MATCH: ", data[i]);
+                console.log(users[i]);
+                console.log(carts[i]);
+              }
+          }
+        }
+      }
 
         return data;
     };

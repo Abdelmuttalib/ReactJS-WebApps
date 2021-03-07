@@ -9,7 +9,7 @@ const UpperPart = ({ title, img }) => {
     const useStyles = makeStyles({
 
         wallpaper: {
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(`${img}`)',
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('${img}')`,
             height: 400,
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
