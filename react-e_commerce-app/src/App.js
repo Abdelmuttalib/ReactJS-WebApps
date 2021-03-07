@@ -4,8 +4,16 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import UpperPart from './UpperPart';
-import ShowProducts from './ShowProducts';
+import { FormControl } from '@material-ui/core';
+import { InputAdornment } from '@material-ui/core';
+import { IconButton, Button } from '@material-ui/core';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import ProductsPage from './ProductsPage';
 import { TextField } from '@material-ui/core';
+import { InputLabel } from '@material-ui/core';
+import { Input } from '@material-ui/core';
+import clsx from 'clsx';
 import Cart from './Cart';
 import Products from './Products';
 import { Typography } from '@material-ui/core';
@@ -18,44 +26,64 @@ import { makeStyles } from '@material-ui/core';
 const App = () => {
 
     const [productsData, setProductsData] = useState([]);
+    const [users, setUsers] = useState({});
+    const [carts, setCarts] = useState({});
+
+    const [passEntered, setPassEntered] = useState({
+      password: '',
+      showPassword: false
+    });
 
     const fetchData = async () => {
 
         const response = await fetch('http://localhost:5000/product');
         const data = await response.json();
-        console.log("Data: ", data);
 
         const des = await fetch('http://localhost:5000/users');
         const users = await des.json();
-        console.log("Users: ", users);
 
         const lek = await fetch('http://localhost:5000/cart');
         const carts = await lek.json();
-        console.log("Carts: ", carts);
-
-        for(let i = 0; i < data.length; i++){
-          for(let j = 0; j < users.length; j++){
-            for(let s = 0; s < carts.length; s++){
-              const one = data[i].id;
-              const two = users[j].id;
-              const three = carts[s].id;
-
-              if(one == two && two == three && one == three){
-                console.log("A MATCH: ", data[i]);
-                console.log(users[i]);
-                console.log(carts[i]);
-              }
-          }
+        
+        return {data, users, carts};
         }
-      }
+      
 
-        return data;
+      //  for(let i = 0; i < data.length; i++){
+      //     for(let j = 0; j < users.length; j++){
+      //       for(let s = 0; s < carts.length; s++){
+      //         const one = data[i].id;
+      //         const two = users[j].id;
+      //         const three = carts[s].id;
+
+      //         if(one == two && two == three && one == three){
+      //           console.log("A MATCH: ", data[i]);
+      //           console.log(users[i]);
+      //           console.log(carts[i]);
+      //         }
+      //     }
+      //   }
+      // }
+    
+
+    const handleChange = (prop) => (event) => {
+      setPassEntered({ ...passEntered, [prop]: event.target.value });
+    };
+  
+    const handleClickShowPassword = () => {
+      setPassEntered({ ...passEntered, showPassword: !passEntered.showPassword });
+    };
+  
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
     };
 
     useEffect(() => {
       const getData = async () => {
-        const productsFromServer = await fetchData();
-        setProductsData(productsFromServer);
+        const allData = await fetchData();
+        setProductsData(allData.data);
+        setUsers(allData.users);
+        setCarts(allData.carts);
       }
       getData();
     }, []);
@@ -87,6 +115,12 @@ const App = () => {
 
     const classes = useStyles();
 
+    const handleSubmit = (event) => {
+      console.log(event);
+      console.log(passEntered);
+      event.preventDefault();
+    };
+
 
     return (
         <>
@@ -94,14 +128,37 @@ const App = () => {
         <Route path='/' exact render={(props) => (
           <div className={classes.home}>
           <Typography className={classes.welcome} variant='h2'>Welcome To The E-Commerce</Typography>
-          <Typography className={classes.login} variant='h4'>Sign In</Typography>
           <form className={classes.root} noValidate autoComplete="off">
+          <Typography className={classes.login} variant='h4'>Sign In</Typography>
+          <FormControl className={clsx(classes.margin, classes.textField)}>
           <TextField id="outlined-basic" label="Email" variant="outlined" />
-          <TextField label="password" variant="outlined"/>
+          </FormControl>
+          <FormControl>
+          <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
+          <Input
+            style={{'color': '#fff'}}
+            id="standard-adornment-password"
+            type={passEntered.showPassword ? 'text' : 'password'}
+            value={passEntered.password}
+            onChange={handleChange('password')}
+            endAdornment={
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {passEntered.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+            }
+          />
+          </FormControl>
+          <FormControl>
+        <input type='submit' onSubmit={ e => handleSubmit(e)}/>
+        </FormControl>
           </form>
           </div>
         )}/>
-        <Route path='/ShowProducts' component={ShowProducts}/>
+        <Route path='/ProductsPage' component={ProductsPage}/>
         <Route path='/cart' component={Cart}/>
         </Router>
         </>

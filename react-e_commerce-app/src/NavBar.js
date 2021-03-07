@@ -26,7 +26,7 @@ const NavBar = () => {
                   <Typography className={classes.title} variant='h6'>E-Commerce</Typography> 
                  </Grid>
                  <Grid item>
-                  <Button><Link to='/ShowProducts' style={{'color': 'black', 'textDecoration': 'none'}}>Products</Link></Button>
+                  <Button><Link to='/ProductsPage' style={{'color': 'black', 'textDecoration': 'none'}}>Products</Link></Button>
                   <Button
                   startIcon={<ShoppingCartIcon />}
                   ><Link to='/Cart' style={{'color': 'black', 'textDecoration': 'none'}}>Cart</Link></Button>
