@@ -1,11 +1,19 @@
 import React from 'react';
 import './index.css';
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import UpperPart from './UpperPart';
+import ShowProducts from './ShowProducts';
+import { TextField } from '@material-ui/core';
+import Cart from './Cart';
 import Products from './Products';
+import { Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
+
+
+
 
 const App = () => {
 
@@ -15,7 +23,6 @@ const App = () => {
 
         const response = await fetch('http://localhost:5000/product');
         const data = await response.json();
-        console.log("FORMAT: ", data[0]);
 
         return data;
     };
@@ -28,22 +35,50 @@ const App = () => {
       getData();
     }, []);
 
+
     const useStyles = makeStyles({
-      sectionContainer: {
-        paddingTop: '30'
-      }
-    });
+      home: {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8ZSUyMGNvbW1lcmNlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80')`,
+        height: '100vh',
+        width: '100%',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column'
+    },
+    welcome: {
+      fontFamily: 'Courier View',
+      fontWeight: '800',
+      color: '#fff',
+      textAlign: 'center',
+      position: 'absolute',
+      top: '8%'
+    }
+  });
 
     const classes = useStyles();
 
 
     return (
         <>
-        <NavBar />
-        <UpperPart />
-        <Container maxWidth='lg' className={classes.sectionContainer}>
-        <Products products={productsData}/>
-        </Container>
+        <Router>
+        <Route path='/' exact render={(props) => (
+          <div className={classes.home}>
+          <Typography className={classes.welcome} variant='h2'>Welcome To The E-Commerce</Typography>
+          <Typography className={classes.login} variant='h4'>Sign In</Typography>
+          <form className={classes.root} noValidate autoComplete="off">
+          <TextField id="outlined-basic" label="Email" variant="outlined" />
+          <TextField label="password" variant="outlined"/>
+          </form>
+          </div>
+        )}/>
+        <Route path='/ShowProducts' component={ShowProducts}/>
+        <Route path='/cart' component={Cart}/>
+        </Router>
         </>
     )
 }

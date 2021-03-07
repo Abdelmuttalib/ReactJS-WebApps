@@ -9,7 +9,7 @@ const Product = ({ id, name, price, image, content }) => {
 
     const useStyles = makeStyles({
         root: {
-            maxWidth: 390,
+            maxWidth: 370
         },
         media: {
             height: 190,
@@ -19,15 +19,14 @@ const Product = ({ id, name, price, image, content }) => {
     console.log("CLASS: ", classes);
 
     return (
-        <> 
+        <>
         <Card elevation={4} className={classes.root}>
           <CardActionArea>
             <CardMedia
             className={classes.media}
-            image={image}
-            title="Nice Product" />
+            image={image}/>
             <CardContent onClick={(ev) => console.log("S: ", ev, ev.target.innerText)}>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5">
                 {name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">

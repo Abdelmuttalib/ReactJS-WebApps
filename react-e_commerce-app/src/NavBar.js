@@ -2,9 +2,11 @@ import React from 'react';
 import { AppBar, Toolbar, IconButton, Button, Menu, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const NavBar = () => {
+
 
     const useStyles = makeStyles({
         root: {
@@ -24,10 +26,10 @@ const NavBar = () => {
                   <Typography className={classes.title} variant='h6'>E-Commerce</Typography> 
                  </Grid>
                  <Grid item>
-                  <Button>Products</Button>
+                  <Button><Link to='/ShowProducts' style={{'color': 'black', 'textDecoration': 'none'}}>Products</Link></Button>
                   <Button
                   startIcon={<ShoppingCartIcon />}
-                  >Cart</Button>
+                  ><Link to='/Cart' style={{'color': 'black', 'textDecoration': 'none'}}>Cart</Link></Button>
                  </Grid>
                 </Grid>
             </Toolbar>

@@ -1,19 +1,30 @@
 import React from 'react';
 import Product from './Product';
 import { Grid } from '@material-ui/core';
-
+import { Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
 const Products = ({ products }) => {
 
     
-    const check = async () => {
+    console.log("How");
 
-    }
+    const useStyles = makeStyles({
+        sectionContainer: {
+            color: 'red',
+            backgroundColor: '#faf',
+            paddingTop: 20
+        }
+    });
+
+    const classes = useStyles();
+
     return (
         <>
-          <Grid container spacing={1}>
+        <Container maxWidth='lg' className={classes.sectionContainer}>
+          <Grid container spacing={2} alignItems="baseline">
             {products.map((product) => (
-            <Grid item xs={12} sm={12} md={6} lg={4}>
+            <Grid item xs={12} sm={12} md={4}>
                 <Product 
                 key={product.id}
                 id={product.id}
@@ -24,6 +35,7 @@ const Products = ({ products }) => {
             </Grid>
             ))}
           </Grid>
+          </Container>
         </>
     )
 }
