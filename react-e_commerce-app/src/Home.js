@@ -9,6 +9,10 @@ const Home = ({ userData }) => {
 
     const useStyles = makeStyles({
         welcome: {
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url('https://images.pexels.com/photos/3312030/pexels-photo-3312030.jpeg?cs=srgb&dl=pexels-elina-krima-3312030.jpg&fm=jpg')`,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
             color: '#ffa',
             alignItems: 'center',
             justifyContent: 'space-between',

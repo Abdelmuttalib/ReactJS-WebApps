@@ -1,27 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
-import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import NavBar from './NavBar';
-import UpperPart from './UpperPart';
-import { formatMs, FormControl } from '@material-ui/core';
-import { InputAdornment } from '@material-ui/core';
-import { IconButton, Button } from '@material-ui/core';
+import { FormControl, Input, Typography, makeStyles } from '@material-ui/core';
 import MuiAlert from "@material-ui/lab/Alert";
 import ProductsPage from './ProductsPage';
-import { TextField } from '@material-ui/core';
-import { InputLabel } from '@material-ui/core';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Paper } from '@material-ui/core';
-import { Input } from '@material-ui/core';
 import Home from './Home';
-import clsx from 'clsx';
 import Cart from './Cart';
-import Products from './Products';
-import { Typography } from '@material-ui/core';
-import { Container } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
 
 
 function Alert(props) {
