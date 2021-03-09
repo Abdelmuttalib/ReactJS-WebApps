@@ -1,10 +1,26 @@
-# Getting Started with Create React App
+# Simple React Js E-Commerce App
+
+## Login Page
+### Authintication Done by Checking users data in 'db.json'
+![Login](https://user-images.githubusercontent.com/54845047/110431296-76032500-8062-11eb-9b9f-c273c2eb7b37.png)
+
+## Home Page
+![Home](https://user-images.githubusercontent.com/54845047/110431358-8e733f80-8062-11eb-9167-2d0a73bec605.png)
+
+## Products Page
+![Products_Page (1)](https://user-images.githubusercontent.com/54845047/110431372-9337f380-8062-11eb-81bb-00e82bc5f62f.png)
+![Products_Page (2)](https://user-images.githubusercontent.com/54845047/110431396-9c28c500-8062-11eb-8ddb-f7b425733d96.png)
+
+## Cart 
+![Cart](https://user-images.githubusercontent.com/54845047/110431416-a34fd300-8062-11eb-9ee2-d30d58ceeb37.png)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
 
 ### `npm start`
 
