@@ -12,7 +12,8 @@
 ![Products_Page (2)](https://user-images.githubusercontent.com/54845047/110431396-9c28c500-8062-11eb-8ddb-f7b425733d96.png)
 
 ## Cart 
-![Cart](https://user-images.githubusercontent.com/54845047/110432144-9b446300-8063-11eb-9c48-c56b6359b127.png)
+![Cart](https://user-images.githubusercontent.com/54845047/110435460-e791a200-8067-11eb-8b20-d93508fc55b3.png)
+
 
 
 
