@@ -12,7 +12,6 @@ const Products = ({ products }) => {
     const useStyles = makeStyles({
         sectionContainer: {
             color: 'red',
-            backgroundColor: '#faf',
             paddingTop: 20
         }
     });

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import Products from './Products';
 
-function ProductsPage() {
+function ProductsPage({ userData }) {
     const [minData, setMinData] = useState([]);
     const fetchProducts = async () => {
         const fet = await fetch('http://localhost:5000/product');
@@ -19,6 +19,8 @@ function ProductsPage() {
         const dataFromServer = await fetchProducts();
         setMinData(dataFromServer);
     }, []);
+
+    console.log("In ProductsPage: ", userData);
 
     return (
         <div>

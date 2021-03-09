@@ -13,6 +13,7 @@ import { TextField } from '@material-ui/core';
 import { InputLabel } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { Paper } from '@material-ui/core';
 import { Input } from '@material-ui/core';
 import Home from './Home';
 import clsx from 'clsx';
@@ -112,7 +113,16 @@ const App = () => {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'row'
-     }//,  // backgroundPosition: 'center',
+     },
+     inputForm: {
+       height: '50%',
+       width: '50%',
+       justifyContent: 'space-evenly',
+       alignItems: 'center',
+       display: 'flex',
+       flexDirection: 'column'
+     },
+    //,  // backgroundPosition: 'center',
         // backgroundRepeat: 'no-repeat',
         // backgroundSize: 'cover',
     //   welcome: {
@@ -135,7 +145,7 @@ const App = () => {
         <Router>
           <Route exact path='/' render={() => (
         !formSubmitted.authorized ? (<div className={classes.home}>
-        <form onSubmit={(evt) => handleSubmit(evt)}>
+        <form className={classes.inputForm} onSubmit={(evt) => handleSubmit(evt)}>
         <Typography variant="h5">
           Login
         </Typography>
@@ -143,6 +153,7 @@ const App = () => {
         <Input
           type='text'
           color='primary'
+          placeholder='Email'
           value={formSubmitted.email}
           onChange={e => {
             setFormSubmitted({...formSubmitted, email: e.target.value });
@@ -152,6 +163,8 @@ const App = () => {
         </FormControl>
         <FormControl>
         <Input
+          className={classes.emailInput}
+          placeholder='Password'
           type="password"
           value={formSubmitted.password}
           onChange={e => {
@@ -161,6 +174,7 @@ const App = () => {
         </FormControl>
         <FormControl>
         <Input
+          className={classes.passInput}
           color="secondary"
           type='submit'
           onSubmit={e => console.log("DONE")}
@@ -171,9 +185,19 @@ const App = () => {
         </form>
         </div>)
           : <Redirect to='/Home'/> )}/>
-          <Route path='/Home' component={Home}/>
-          <Route path='/Cart' component={Cart}/>
-          <Route path='/ProductsPage' component={ProductsPage}/>
+
+          <Route path='/Home'>
+            <Home userData={formSubmitted.user}/>
+          </Route>
+
+          <Route path='/Cart'>
+            <Cart userData={formSubmitted.user}/>
+          </Route>
+
+          <Route path='/ProductsPage'>
+            <ProductsPage userData={formSubmitted.user}/>
+          </Route>
+
         </Router>
         </>
     )
