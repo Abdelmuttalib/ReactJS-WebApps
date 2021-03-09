@@ -104,26 +104,25 @@ const App = () => {
 
     const useStyles = makeStyles({
       home: {
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8ZSUyMGNvbW1lcmNlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80')`,
+        // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8ZSUyMGNvbW1lcmNlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80')`,
         height: '100vh',
         width: '100%',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',
         display: 'flex',
-        flexDirection: 'column'
-    },
-      welcome: {
-        fontFamily: 'Courier View',
-        fontWeight: '800',
-        color: '#fff',
-        textAlign: 'center',
-        position: 'absolute',
-        top: '8%'
-      }
+        flexDirection: 'row'
+     }//,  // backgroundPosition: 'center',
+        // backgroundRepeat: 'no-repeat',
+        // backgroundSize: 'cover',
+    //   welcome: {
+    //     fontFamily: 'Courier View',
+    //     fontWeight: '800',
+    //     color: '#fff',
+    //     textAlign: 'center',
+    //     position: 'absolute',
+    //     top: '8%'
+    //   }
       });
 
   const classes = useStyles();
@@ -134,43 +133,47 @@ const App = () => {
     return (
         <>
         <Router>
-        {!formSubmitted.authorized ? <div className={classes.home}>
-      <form onSubmit={(evt) => handleSubmit(evt)}>
-      <Typography variant="h5">
-        Login
-      </Typography>
-      <FormControl>
-      <Input
-        type='text'
-        color='primary'
-        value={formSubmitted.email}
-        onChange={e => {
-          setFormSubmitted({...formSubmitted, email: e.target.value });
-        console.log("V1: ", e.target.value, "K: ", formSubmitted);
-      }}
-      />
-      </FormControl>
-      <FormControl>
-      <Input
-        type="password"
-        value={formSubmitted.password}
-        onChange={e => {
-          setFormSubmitted({...formSubmitted, password: e.target.value });
-        console.log("VALUE: ", e.target.value, "L: ", formSubmitted);}}
-      />
-      </FormControl>
-      <FormControl>
-      <Input
-        color="secondary"
-        type='submit'
-        onSubmit={e => console.log("DONE")}
-      >
-        Login
-      </Input>
-      </FormControl>
-    </form>
-    </div> : <Home userData={formSubmitted.user}/> }
-          
+          <Route exact path='/' render={() => (
+        !formSubmitted.authorized ? (<div className={classes.home}>
+        <form onSubmit={(evt) => handleSubmit(evt)}>
+        <Typography variant="h5">
+          Login
+        </Typography>
+        <FormControl>
+        <Input
+          type='text'
+          color='primary'
+          value={formSubmitted.email}
+          onChange={e => {
+            setFormSubmitted({...formSubmitted, email: e.target.value });
+          console.log("V1: ", e.target.value, "K: ", formSubmitted);
+        }}
+        />
+        </FormControl>
+        <FormControl>
+        <Input
+          type="password"
+          value={formSubmitted.password}
+          onChange={e => {
+            setFormSubmitted({...formSubmitted, password: e.target.value });
+          console.log("VALUE: ", e.target.value, "L: ", formSubmitted);}}
+        />
+        </FormControl>
+        <FormControl>
+        <Input
+          color="secondary"
+          type='submit'
+          onSubmit={e => console.log("DONE")}
+        >
+          Login
+        </Input>
+        </FormControl>
+        </form>
+        </div>)
+          : <Redirect to='/Home'/> )}/>
+          <Route path='/Home' component={Home}/>
+          <Route path='/Cart' component={Cart}/>
+          <Route path='/ProductsPage' component={ProductsPage}/>
         </Router>
         </>
     )
