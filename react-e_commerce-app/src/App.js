@@ -8,9 +8,9 @@ import Home from './Home';
 import Cart from './Cart';
 
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+// function Alert(props) {
+//   return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
 
 const App = () => {
 
@@ -46,13 +46,13 @@ const App = () => {
       setFormSubmitted({ ...formSubmitted, password: value });
     };
   
-    const handleClickShowPassword = () => {
-      setFormSubmitted({ ...formSubmitted, showPassword: !formSubmitted.showPassword });
-    };
+    // const handleClickShowPassword = () => {
+    //   setFormSubmitted({ ...formSubmitted, showPassword: !formSubmitted.showPassword });
+    // };
 
-    const handleMouseDownPassword = (event) => {
-      event.preventDefault();
-    };
+    // const handleMouseDownPassword = (event) => {
+    //   event.preventDefault();
+    // };
 
 
     
