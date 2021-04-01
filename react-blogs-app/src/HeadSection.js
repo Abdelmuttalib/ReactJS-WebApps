@@ -8,7 +8,7 @@ const HeadSection = () => {
 
     const useStyles = makeStyles({
         headSection: {
-            background: '#aa1122',
+            background: '#FBFBFB', // FBFBFB
             width: '100%',
             height: '467px',
             margin: 'auto'
@@ -36,19 +36,20 @@ const HeadSection = () => {
             fontWeight: '400',
             fontStyle: 'normal',
             fontSize: '30px',
-            lineHeight: '35px'
+            lineHeight: '35px',
+            paddingTop: '25px'
         },
-        coffeeImage: {
-            width: '70px',
-            height: '67px',
-            blend: 'pass through',
-            transform: 'rotate(-23.28deg)',
-            position: 'absolute',
-            left: '28%',
-            right: '65.92%',
-            top:'47.23%',
-            bottom:'38.42%'
-        },
+        // coffeeImage: {
+        //     width: '70px',
+        //     height: '67px',
+        //     blend: 'pass through',
+        //     transform: 'rotate(-23.28deg)',
+        //     position: 'absolute',
+        //     left: '33%',
+        //     right: '65.92%',
+        //     top:'58.23%',
+        //     bottom:'38.42%'
+        // },
         typographySection: {
             width: '356px',
             height: '144px',
@@ -66,19 +67,17 @@ const HeadSection = () => {
                     
                     <Grid item>
 
-                        <Grid container className={classes.typographySection} alignContent='center' alignItems='center'>
-
+                        <Grid container className={classes.typographySection} alignContent='center' alignItems='center' spacing={0}>
                             <Grid item>
-                                        <Typography className={classes.sectionHead}>
-                                            Make better coffee
-                                        </Typography>
-                                        <Paper className={classes.coffeeImage} elevation={5}/>
-                        
+                                <Typography className={classes.sectionHead}>
+                                    Make better coffee
+                                </Typography>
                             </Grid>
 
-                        </Grid>
-                        
-                        <Grid container className={classes.typographySection}>
+                            {/* <Grid item>
+                                <Paper className={classes.coffeeImage} elevation={5}/>
+                            </Grid> */}
+
                             <Grid item>
                                 <Typography className={classes.sectionQuestion}>
                                     why learn how to blog?

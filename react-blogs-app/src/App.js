@@ -1,10 +1,9 @@
 import React from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import NavBar from './NavBar';
-import SearchBar from './SearchBar';
 import HeadSection from './HeadSection';
+import Cards from './Cards';
 import './index.css';
-import { Paper } from '@material-ui/core';
 
 const theme = createMuiTheme({
     typography: {
@@ -21,6 +20,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <NavBar />
             <HeadSection />
+            <Cards />
         </ThemeProvider>
         </>
     )

@@ -2,4 +2,5 @@
 *{
     margin: 0;
     font-family: 'Inter';
+    transition: all 0.5 linear;
 }
