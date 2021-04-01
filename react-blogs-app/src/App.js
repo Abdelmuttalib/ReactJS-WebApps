@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import NavBar from './NavBar';
 import HeadSection from './HeadSection';
-import Cards from './Cards';
+import CardsSection from './CardsSection';
 import './index.css';
 
 const theme = createMuiTheme({
@@ -20,7 +20,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <NavBar />
             <HeadSection />
-            <Cards />
+            <CardsSection />
         </ThemeProvider>
         </>
     )

@@ -5,7 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import CardLatest from './Cards/CardLatest';
 import RegularCard from './Cards/RegularCard';
 
-const Cards = () => {
+const CardsSection = () => {
 
     const useStyles = makeStyles({
         // root: {
@@ -47,8 +47,8 @@ const Cards = () => {
                 </Grid>
             </Grid>
 
-        </Grid>
+        </Grid> 
     )
 }
 
-export default Cards;
+export default CardsSection;
