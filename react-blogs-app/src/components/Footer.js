@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, AppBar, Toolbar, Typography, Container } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';

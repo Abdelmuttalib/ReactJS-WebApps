@@ -1,13 +1,11 @@
 import React from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import NavBar from './NavBar';
-import HeadSection from './HeadSection';
-import CardsSection from './CardsSection';
+import NavBar from './components/NavBar';
+import HeadSection from './components/HeadSection';
+import CardsSection from './components/CardsSection';
+import SeeMoreButton from './components/SeeMoreButton';
+import Footer from './components/Footer';
 import './index.css';
-import LargeCard from './Cards/LargeCard';
-import SeeMoreButton from './SeeMoreButton';
-import Footer from './Footer';
-
 
 const theme = createMuiTheme({
     typography: {
