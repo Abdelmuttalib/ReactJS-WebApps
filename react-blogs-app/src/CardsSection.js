@@ -4,6 +4,7 @@ import { Grid, Card, Paper, CardContent, CardMedia, IconButton,
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import CardLatest from './Cards/CardLatest';
 import RegularCard from './Cards/RegularCard';
+import LargeCard from './Cards/LargeCard';
 
 const CardsSection = () => {
 
@@ -12,21 +13,16 @@ const CardsSection = () => {
         //     flexGrow: 1,
         //   },
         container: {
-            margin: '30px 0px'
+            margin: '30px 0px',
+            width: '100%'
         },
-        paper: {
-            textAlign: 'center',
-            backgroundColor: 'red',
-            height: '243px',
-            width: '966px'
-          }
     });
 
     const classes = useStyles();
 
 
     return (
-        <Grid container className={classes.container} justify='center' spacing={4}>
+        <Grid container className={classes.container} justify='center' spacing={5}>
 
             <Grid item>
                 <CardLatest />
@@ -45,6 +41,10 @@ const CardsSection = () => {
                         <RegularCard />
                     </Grid>
                 </Grid>
+            </Grid>
+
+            <Grid item>
+              <LargeCard />
             </Grid>
 
         </Grid> 

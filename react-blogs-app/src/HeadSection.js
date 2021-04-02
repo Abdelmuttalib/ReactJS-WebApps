@@ -90,7 +90,7 @@ const HeadSection = () => {
                     <Grid item>
                         <Grid container>
                             <Grid item>
-                                <Paper className={classes.paper} elevation={4}/>
+                                <img className={classes.imagePlace} src='https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'/>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -100,4 +100,4 @@ const HeadSection = () => {
     )
 }
 
-export default HeadSection
+export default HeadSection;

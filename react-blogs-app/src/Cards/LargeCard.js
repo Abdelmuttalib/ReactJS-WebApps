@@ -3,72 +3,79 @@ import { Grid, Card, Paper, CardContent, CardMedia, IconButton,
     Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const CardLatest = () => {
+const LargeCard = () => {
 
     const useStyles = makeStyles((theme) => ({
         root: {
           display: 'flex',
-          width: '966px',
-          height: '243px',
+          width: '965px',
+          height: '500px',
           justifyContent: 'center',
-          borderRadius: '5px 0px 0px 5px'
+          borderRadius: '0px',
+          alignContent: 'center',
+          alignItems: 'center',
+          boxShadow: 'none'
         },
         content: {
-            width: '533px',
+            background: '#F7FAFC',
+            width: '440px',
+            height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            marginLeft: 54,
-            marginTop: 20,
-            gap: 27
+            alignContent: 'center',
+            alignItems: 'center',
+            gap: 27,
+            justifyContent: 'center'
         },
         title: {
-            width: '246px',
-            height: '36px',
+            width: '308px',
+            height: '96px',
             fontStyle: 'normal',
             fontWeight: 'bold',
-            fontSize: '30px',
+            fontSize: '40px',
+            lineHeight: '48px'
         },
         brief: {
             color: '#718096',
-            width: '403px',
-            height: '51px',
+            width: '311px',
+            height: '114px',
             fontFamily: 'Inter',
             fontStyle: 'normal',
-            fontweight: 'normal',
-            fontSize: '14px',
-            lineHeight: '17px',
-            marginLeft: -2
+            fontweight: '400',
+            fontSize: '16px',
+            lineHeight: '19px',
         },
         cardFooter: {
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
+            gap: 6,
             width: 403,
             marginTop: 5
         },
         date: {
-            color: '#718096',
-            width: '92px',
-            height: '14px',
+            color: '#4A5568',
+            width: '57px',
+            height: '19px',
             fontFamily: 'Inter',
             fontStyle: 'normal',
-            fontWeight: 'normal',
-            fontSize: '12px',
-            lineHeight: '14px'
+            fontWeight: '400',
+            fontSize: '16px',
+            lineHeight: '19px',
+            marginRight: '5em'
         },
         readMore: {
-            color: '#2D3748',
-            width: '63px',
-            height: '15px',
+            color: '#000000',
+            width: '84px',
+            height: '19px',
             fontFamily: 'Inter',
             fontStyle: 'normal',
             fontWeight: 'bold',
-            fontSize: '12px',
-            lineHeight: '14px',
-            // marginRight: '8em'
+            fontSize: '16px',
+            lineHeight: '19px'
         },
         cover: {
-          width: '433px',
+          width: '525px',
           height: '100%'
         },
       }));
@@ -78,20 +85,19 @@ const CardLatest = () => {
 
 
     return (
-        <Paper elevation={0.5}>
     <Card className={classes.root}>
         <CardContent className={classes.content}>
 
           <Typography className={classes.title}>
-            long established
+            What is Lorem Ipsum?
           </Typography>
           <Typography className={classes.brief}>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....
+          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution...
           </Typography>
 
           <div className={classes.cardFooter}>
             <Typography className={classes.date}>
-                May 20th 2020
+                May 20
             </Typography>
 
             <Typography className={classes.readMore}>
@@ -106,8 +112,7 @@ const CardLatest = () => {
             image='https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
         />
     </Card>  
-    </Paper>
     )
 }
 
-export default CardLatest;
+export default LargeCard;

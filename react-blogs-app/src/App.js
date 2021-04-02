@@ -4,6 +4,10 @@ import NavBar from './NavBar';
 import HeadSection from './HeadSection';
 import CardsSection from './CardsSection';
 import './index.css';
+import LargeCard from './Cards/LargeCard';
+import SeeMoreButton from './SeeMoreButton';
+import Footer from './Footer';
+
 
 const theme = createMuiTheme({
     typography: {
@@ -21,6 +25,8 @@ const App = () => {
             <NavBar />
             <HeadSection />
             <CardsSection />
+            <SeeMoreButton />
+            <Footer />
         </ThemeProvider>
         </>
     )
