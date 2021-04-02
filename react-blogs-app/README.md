@@ -1,7 +1,7 @@
 # Simple Blog Website Design using React & Material UI
 
 ## Home Page
-![Screenshot (129)](https://user-images.githubusercontent.com/54845047/113437797-29c6ae80-939c-11eb-8efd-5e952eb8ef18.png)
-![Screenshot (130)](https://user-images.githubusercontent.com/54845047/113437803-2b907200-939c-11eb-8360-a5719a45db49.png)
-![Screenshot (128)](https://user-images.githubusercontent.com/54845047/113437805-2c290880-939c-11eb-801e-ad1a9c91987e.png)
+![Screenshot (128)](https://user-images.githubusercontent.com/54845047/113437983-84f8a100-939c-11eb-9061-10e77facc7ce.png)
+![Screenshot (129)](https://user-images.githubusercontent.com/54845047/113437986-8629ce00-939c-11eb-9294-3c599eb700d3.png)
+![Screenshot (130)](https://user-images.githubusercontent.com/54845047/113437987-86c26480-939c-11eb-9cd5-ede783d2dd86.png)
 
