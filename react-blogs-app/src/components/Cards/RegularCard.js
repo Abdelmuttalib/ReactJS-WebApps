@@ -8,10 +8,10 @@ import { Directions } from '@material-ui/icons';
 // import { BrowserRouter as Router,Link } from 'react-router-dom';
 
 
-const RegularCard = () => {
+const RegularCard = ({ imgUrl }) => {
 
 
-    const useStyles = makeStyles(() => ({
+    const useStyles = makeStyles((theme) => ({
         root: {
           maxWidth: 300,
           height: 382,
@@ -20,7 +20,7 @@ const RegularCard = () => {
           borderRadius: '0 0 5px 5px'
         },
         title: {
-            color: '#2D3748',
+            // color: theme.palette.colors.darkBlue,
             blend: 'pass through',
             fontWeight: '800',
             fontStyle: 'normal',
@@ -29,7 +29,7 @@ const RegularCard = () => {
             fontFamily: 'Inter',
         },
         brief: {
-            color: '#718096',
+            color: theme.palette.text.secondary,//'#718096',
             fontFamily: 'Inter',
             fontStyle: 'normal',
             fontWeight: 'normal',
@@ -50,13 +50,14 @@ const RegularCard = () => {
               marginRight: '10px'
           },
           date: {
+              color: theme.palette.text.secondary,
               width: '92px',
               height: '15px',
               fontWeight: 'normal',
               fontStyle: 'normal',
               fontSize: 12,
             //   lineHeight: 14,
-              color: '#718096'
+            //   color: theme.palette.colors.lightGray
           },
           readMore: {
             width: '63px',
@@ -65,7 +66,7 @@ const RegularCard = () => {
             fontStyle: 'normal',
             fontSize: 12,
           //   lineHeight: 14,
-            color: '#2D3748'
+            // color: theme.palette.colors.darkBlue
           }
       }));
 
@@ -79,7 +80,7 @@ const RegularCard = () => {
         <Card className={classes.root}>
         <CardMedia
             className={classes.media}
-            image='https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
+            image={imgUrl}
         />
         <CardContent className={classes.content}>
             <Typography className={classes.title}>

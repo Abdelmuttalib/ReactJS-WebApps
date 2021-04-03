@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -8,13 +8,8 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const Footer = () => {
 
-    const useStyles = makeStyles({
-        footer: {
-            backgroundColor: 'red',
-            
-            // position: 'absolute',
-            // bottom: '0'
-        },
+    const useStyles = makeStyles(theme => ({
+
         container: {
             display: 'inline-block',
             width: '100%',
@@ -36,7 +31,7 @@ const Footer = () => {
             fontFamily: 'Inter'
         },
         icon: {
-            color: '#454444'
+            // color: theme.palette.colors.icon //'#454444'
         },
         itemone: {
             marginRight: '2.5em'
@@ -44,12 +39,13 @@ const Footer = () => {
         itemtwo: {
             marginLeft: '2em'
         }
-    });
+    }));
 
     const classes = useStyles();
     return (
         <>
         {/* <div className={classes.footer}> */}
+        <Paper elevation={2} square>
             <Grid container className={classes.container} justify='center'>
 
                 <Grid item lg={4} className={classes.itemone}>
@@ -76,6 +72,7 @@ const Footer = () => {
                 </Grid>
 
             </Grid>
+            </Paper>
         {/* </div> */}
         </>
     )

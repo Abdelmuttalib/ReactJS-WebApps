@@ -1,30 +1,29 @@
 import React from 'react';
-import { Grid, Box, Paper, Typography } from '@material-ui/core';
+import { Grid, Box, Typography, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 
 
-const HeadSection = () => {
+const HeadSection = ({ imgUrl }) => {
 
-    const useStyles = makeStyles({
+    const useStyles = makeStyles(theme => ({
         headSection: {
-            background: '#FBFBFB', // FBFBFB
+            background: theme.palette.background.default, // FBFBFB
             width: '100%',
             height: '467px',
-            margin: 'auto'
+            margin: 'auto',
         },
         // container: {
             
         // },
         imagePlace: {
             height: '323px',
-            width: '476px',
-            backgroundColor: 'blue'
+            width: '476px'
         },
-        paper: {
-            height: 323,
-            width: 476,
-          },
+        // paper: {
+        //     height: 323,
+        //     width: 476,
+        //   },
         sectionHead: {
             fontWeight: '800',
             fontStyle: 'normal',
@@ -32,7 +31,7 @@ const HeadSection = () => {
             lineHeight: '71px'
         },
         sectionQuestion: {
-            color: '#4A5568',
+            color: theme.palette.text.secondary,
             fontWeight: '400',
             fontStyle: 'normal',
             fontSize: '30px',
@@ -57,11 +56,12 @@ const HeadSection = () => {
             alignContent: 'center',
             alignItems: 'center'
         }
-    });
+    }));
     
     const classes = useStyles();
 
     return (
+        <Paper elevation={0} square>
         <Box className={classes.headSection} component='div'>
                 <Grid container className={classes.headSection} justify='center' alignItems='center' alignContent='center' spacing={7}>
                     
@@ -90,13 +90,14 @@ const HeadSection = () => {
                     <Grid item>
                         <Grid container>
                             <Grid item>
-                                <img className={classes.imagePlace} src='https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'/>
+                                <img className={classes.imagePlace} src={imgUrl}/>
                             </Grid>
                         </Grid>
                     </Grid>
 
                 </Grid>  
         </Box>
+        </Paper>
     )
 }
 

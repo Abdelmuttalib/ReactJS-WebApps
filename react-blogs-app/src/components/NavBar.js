@@ -9,9 +9,7 @@ import SearchBar from './SearchBar';
 const NavBar = () => {
 
     const useStyles = makeStyles((theme) => ({
-        root: {
-            flexGrow: 1,
-          },
+
           menuButton: {
             marginRight: theme.spacing(2),
           },
@@ -21,20 +19,21 @@ const NavBar = () => {
             height: '24px',
             fontStyle: 'normal',
             fontWeight: 'bolder',
-            color: '#000000',
             paddingLeft: '50px'
           },
           appBar: {
-            backgroundColor: '#fff',
-            height: '85px'
+            height: '85px',
+            backgroundColor: theme.palette.background.paper,
+            paddingLeft: '1.4em',
           },
           toolBar: {
             height: '100%',
             justify: 'center',
             alignItems: 'center',
-            alignContent: 'center'
+            alignContent: 'center',
           },
           gridContainer: {
+            // color: 'black'
           },
           // textField: {
           //   height: '38px',
@@ -45,18 +44,19 @@ const NavBar = () => {
             fontWeight: '400',
             fontSize: '16px',
             lineHeight: '19px',
-            color: '#000000'
           },
-          color: {
-            color: '#454444'
+          icon: {
+            color: theme.palette.icons
           }
     }));
 
+
     const classes = useStyles();
 
+    
     return (
       <Paper elevation={0}>
-        <AppBar className={classes.appBar} position="static">
+        <AppBar className={classes.appBar} color='primary.main' position="static">
             <Toolbar className={classes.toolBar}>
               <Grid item sm={12} md={12} lg={12}>
                 <Grid container className={classes.gridContainer}>
@@ -74,20 +74,20 @@ const NavBar = () => {
                       </Grid>
                       
                       <Grid item>
-                    <Grid container spacing={4} className={classes.color}>
+                    <Grid container spacing={4}>
                         <Grid item>
                           <Typography className={classes.homeArticles}>Home</Typography>
                         </Grid>
                         <Grid item>
                           <Typography className={classes.homeArticles}>Articles</Typography>
                         </Grid>
-                        <Grid item>
+                        <Grid item className={classes.icon}>
                             <InstagramIcon />
                         </Grid>
-                        <Grid item>
+                        <Grid item  className={classes.icon}>
                             <TwitterIcon />
                         </Grid>
-                        <Grid item>
+                        <Grid item  className={classes.icon}>
                             <LinkedInIcon />
                         </Grid>
                     </Grid>

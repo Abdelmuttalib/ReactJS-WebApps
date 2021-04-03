@@ -1,14 +1,13 @@
 import React from 'react';
-import { Button, Typography, Grid } from '@material-ui/core';
+import { Button, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 const SeeMoreButton = () => {
 
-    const useStyles = makeStyles({
+    const useStyles = makeStyles(theme => ({
         container: {
             width: '966px',
-            // backgroundColor: 'blue',
             height: '100px',
             margin: '-50px auto',
             display: 'flex',
@@ -50,18 +49,20 @@ const SeeMoreButton = () => {
             marginRight: '0.2em'
         },
         
-    });
+    }));
 
 
     const classes = useStyles();
     
     return (
+        <Paper elevation={0}>
         <div className={classes.container}>
-            <Button className={classes.button} variant="contained">
+            <Button className={classes.button} color='secondary' variant="contained">
                 <span className={classes.label}>See more</span>
                 <ArrowDropDownCircleIcon className={classes.icon} />
             </Button>
         </div>
+        </Paper>
     )
 }
 

@@ -3,7 +3,7 @@ import { Grid, Card, Paper, CardContent, CardMedia, IconButton,
     Typography } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const CardLatest = () => {
+const CardLatest = ({ imgUrl }) => {
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -29,7 +29,7 @@ const CardLatest = () => {
             fontSize: '30px',
         },
         brief: {
-            color: '#718096',
+            color: theme.palette.text.secondary,
             width: '403px',
             height: '51px',
             fontFamily: 'Inter',
@@ -47,7 +47,7 @@ const CardLatest = () => {
             marginTop: 5
         },
         date: {
-            color: '#718096',
+            color: theme.palette.text.secondary,
             width: '92px',
             height: '14px',
             fontFamily: 'Inter',
@@ -57,7 +57,7 @@ const CardLatest = () => {
             lineHeight: '14px'
         },
         readMore: {
-            color: '#2D3748',
+            // color: theme.palette.colors.darkBlue, //'#2D3748'
             width: '63px',
             height: '15px',
             fontFamily: 'Inter',
@@ -103,7 +103,7 @@ const CardLatest = () => {
 
         <CardMedia
             className={classes.cover}
-            image='https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
+            image={imgUrl}
         />
     </Card>  
     </Paper>

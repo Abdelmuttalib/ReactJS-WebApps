@@ -20,7 +20,6 @@ const SearchBar = () => {
         icon: {
             width: '20px',
             height: '20px',
-            color: '#000000'
         },
         textField: {
             width: '80px',
@@ -47,7 +46,7 @@ const SearchBar = () => {
             <Grid item className={classes.itemone}>
                 <form onSubmit={(e) => handleSubmit(e)}>
                 <FormControl>
-                    <Input className={classes.textField} placeholder='Search...' type='text' onChange={e => {
+                    <Input className={classes.textField} disableUnderline placeholder='Search...' type='text' onChange={e => {
                         setSearchValue(e.target.value);
                     }}/>
                 </FormControl>

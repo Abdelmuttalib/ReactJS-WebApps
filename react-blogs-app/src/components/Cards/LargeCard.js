@@ -1,7 +1,6 @@
 import React from 'react';
-import { Grid, Card, Paper, CardContent, CardMedia, IconButton,
-    Typography } from '@material-ui/core';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const LargeCard = () => {
 
@@ -17,7 +16,7 @@ const LargeCard = () => {
           boxShadow: 'none'
         },
         content: {
-            background: '#F7FAFC',
+            background: theme.palette.background.default,
             width: '440px',
             height: '100%',
             display: 'flex',
@@ -36,7 +35,7 @@ const LargeCard = () => {
             lineHeight: '48px'
         },
         brief: {
-            color: '#718096',
+            color: theme.palette.text.secondary,
             width: '311px',
             height: '114px',
             fontFamily: 'Inter',
@@ -54,7 +53,7 @@ const LargeCard = () => {
             marginTop: 5
         },
         date: {
-            color: '#4A5568',
+            color: theme.palette.text.secondary,
             width: '57px',
             height: '19px',
             fontFamily: 'Inter',
@@ -65,7 +64,6 @@ const LargeCard = () => {
             marginRight: '5em'
         },
         readMore: {
-            color: '#000000',
             width: '84px',
             height: '19px',
             fontFamily: 'Inter',
@@ -109,7 +107,7 @@ const LargeCard = () => {
 
         <CardMedia
             className={classes.cover}
-            image='https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
+            image='https://www.stepupsomerset.org.uk/SiteAssets/Images/Skills/Tech-IT-christopher-gower-m_HRfLhgABo-unsplash.jpg'
         />
     </Card>  
     )
