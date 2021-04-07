@@ -9,10 +9,27 @@ const Product = ({ id, name, price, image, content }) => {
 
     const useStyles = makeStyles({
         root: {
-            maxWidth: 370
+            width: 330,
+            maxHeight: 400
         },
         media: {
-            height: 190,
+          height: 200,
+          maxHeight: 200
+        },
+        content: {
+          maxHeight: 100
+        },
+        bottom: {
+          display: 'flex',
+          justifyContent: 'space-around',
+          flexDirection: 'row',
+          alignContent: 'center',
+          alignItems: 'center',
+          margin: '1rem'
+        },
+        icon: {
+          marginLeft: '6rem',
+          color: '#ba000d'
         }
     });
     const classes = useStyles();
@@ -25,31 +42,34 @@ const Product = ({ id, name, price, image, content }) => {
             <CardMedia
             className={classes.media}
             image={image}/>
-            <CardContent onClick={(ev) => console.log("S: ", ev, ev.target.innerText)}>
-              <Typography gutterBottom variant="h5">
+            <CardContent className={classes.content} onClick={(ev) => console.log("S: ", ev, ev.target.innerText)}>
+              <Typography gutterBottom>
                 {name}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              {/* <Typography variant="body2" color="textSecondary" component="p">
                 {content}
-              </Typography>
+              </Typography> */}
             </CardContent>
           </CardActionArea>
-          <Typography variant="h6" align="center" gutterBottom display="block">
-          ${price}
-          </Typography>
-          <CardActions>
-            <Button 
-            onClick={() => {
-              console.log("Added to Cart", `localhost:5000/product/${id}`);
-            }}
-            style={{width: '100%', height: '3em', margin: 'auto', marginBottom: '0.7em', marginTop: '0.5em'}} 
-            size="large" 
-            color="secondary" 
-            variant="contained" 
-            startIcon={<AddShoppingCartIcon />}>
-            Add To Card
-            </Button>
-          </CardActions>
+          <div className={classes.bottom}>
+            <Typography variant="h6" align="center">
+            $<span style={{ fontWeight: 'normal', marginLeft: '0.1rem', color: '#000' }}>{price}</span>
+            </Typography>
+            <CardActions>
+              {/* <Button 
+              onClick={() => {
+                console.log("Added to Cart", `localhost:5000/product/${id}`);
+              }}
+              style={{ height: '3em', margin: 'auto', marginBottom: '0.7em', marginTop: '0.5em'}} 
+              size="large" 
+              color="secondary" 
+              variant="contained" 
+              startIcon={ */}
+              <IconButton onClick={(e) => console.log("F: " + id, e)} className={classes.icon} color='secondary' edge='start' size='medium'>
+                <AddShoppingCartIcon />
+              </IconButton>
+            </CardActions>
+          </div>
         </Card>
         </>
     )

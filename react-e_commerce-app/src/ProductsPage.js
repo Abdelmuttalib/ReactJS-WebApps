@@ -6,19 +6,7 @@ import Products from './Products';
 
 function ProductsPage({ userData }) {
     const [minData, setMinData] = useState([]);
-    const fetchProducts = async () => {
-        const fet = await fetch('http://localhost:5000/product');
-        const data = await fet.json();
-
-        return data;
-    }
-
     
-
-    useEffect(async () => {
-        const dataFromServer = await fetchProducts();
-        setMinData(dataFromServer);
-    }, []);
 
     console.log("In ProductsPage: ", userData);
 

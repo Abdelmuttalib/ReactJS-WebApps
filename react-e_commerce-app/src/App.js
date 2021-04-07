@@ -3,7 +3,9 @@ import './index.css';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { FormControl, Input, Typography, makeStyles } from '@material-ui/core';
 import MuiAlert from "@material-ui/lab/Alert";
+import Login from './Login';
 import ProductsPage from './ProductsPage';
+import { UserContext } from './UserContext';
 import Home from './Home';
 import Cart from './Cart';
 
@@ -14,37 +16,31 @@ import Cart from './Cart';
 
 const App = () => {
 
-
-  const [users, setUsers] = useState({});
-  const [user, setUser] = useState({});
-  const [formSubmitted, setFormSubmitted] = useState({
-        email: '',
-        password: '',
-        showPassword: false,
-        authorized: false,
-        checked: false,
-        user: {}
-      });
+  const [user, setUser] = useState('HOLLA');
+  
+  useEffect(() => {
+    console.log("Value Changed: ", user);
+  }, [user]);
 
 
 
 
-  const fetchUsers = async () => {
-    const response = await fetch('http://localhost:5000/users');
-    const users = await response.json();
-    console.log(typeof(users));
+  // const fetchUsers = async () => {
+  //   const response = await fetch('http://localhost:5000/users');
+  //   const users = await response.json();
+  //   console.log(typeof(users));
 
-    return users;
-    }
+  //   return users;
+  //   }
 
 
-  const handleChangeEmail = (value) => {
-      setFormSubmitted({ ...formSubmitted, email: value });
-    };
+  // const handleChangeEmail = (value) => {
+  //     setFormSubmitted({ ...formSubmitted, email: value });
+  //   };
 
-    const handleChangePass = (value) => {
-      setFormSubmitted({ ...formSubmitted, password: value });
-    };
+  //   const handleChangePass = (value) => {
+  //     setFormSubmitted({ ...formSubmitted, password: value });
+  //   };
   
     // const handleClickShowPassword = () => {
     //   setFormSubmitted({ ...formSubmitted, showPassword: !formSubmitted.showPassword });
@@ -56,70 +52,31 @@ const App = () => {
 
 
     
-    const authorize = ({ email, password}) => {
-      console.log(email, password);
-      if(formSubmitted.authorized == false){
-      users.map((user) => {
-        if(user.email == email && user.password == password){
-          console.log("SUCCESS: ", user.email, email, "O ", user.password, password);
-          setFormSubmitted({...formSubmitted, authorized: true, checked: true, user: user});
-        }else{
-          console.log("IGNORED: ");
-        }
-      });
-    }
-  }
+  //   const authorize = ({ email, password}) => {
+  //     console.log(email, password);
+  //     if(formSubmitted.authorized == false){
+  //     users.map((user) => {
+  //       if(user.email == email && user.password == password){
+  //         console.log("SUCCESS: ", user.email, email, "O ", user.password, password);
+  //         setFormSubmitted({...formSubmitted, authorized: true, checked: true, user: user});
+  //       }else{
+  //         console.log("IGNORED: ");
+  //       }
+  //     });
+  //   }
+  // }
 
-  useEffect(() => {
-    const getUsersData = async () => {
-    const liveUsersData = await fetchUsers();
-    setUsers(liveUsersData);
-    console.log("LIVE: ", liveUsersData);
-  }
+//   useEffect(() => {
+//     const getUserssData = async () => {
+//     const liveUsersData = await fetchUsers();
+//     setUsers(liveUsersData);
+//     console.log("LIVE: ", liveUsersData);
+//   }
 
-  getUsersData();
-}, []);
+//   getUsersData();
+// }, []);
 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    authorize(formSubmitted);
-  };
-
-
-    const useStyles = makeStyles({
-      home: {
-        // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1592503254549-d83d24a4dfab?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8ZSUyMGNvbW1lcmNlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80')`,
-        height: '100vh',
-        width: '100%',
-        position: 'absolute',
-        justifyContent: 'center',
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'row'
-     },
-     inputForm: {
-       height: '50%',
-       width: '50%',
-       justifyContent: 'space-evenly',
-       alignItems: 'center',
-       display: 'flex',
-       flexDirection: 'column'
-     },
-    //,  // backgroundPosition: 'center',
-        // backgroundRepeat: 'no-repeat',
-        // backgroundSize: 'cover',
-    //   welcome: {
-    //     fontFamily: 'Courier View',
-    //     fontWeight: '800',
-    //     color: '#fff',
-    //     textAlign: 'center',
-    //     position: 'absolute',
-    //     top: '8%'
-    //   }
-      });
-
-  const classes = useStyles();
+  // const classes = useStyles();
 
   
 
@@ -127,60 +84,19 @@ const App = () => {
     return (
         <>
         <Router>
-          <Route exact path='/' render={() => (
-        !formSubmitted.authorized ? (<div className={classes.home}>
-        <form className={classes.inputForm} onSubmit={(evt) => handleSubmit(evt)}>
-        <Typography variant="h5">
-          Login
-        </Typography>
-        <FormControl>
-        <Input
-          type='text'
-          color='primary'
-          placeholder='Email'
-          value={formSubmitted.email}
-          onChange={e => {
-            setFormSubmitted({...formSubmitted, email: e.target.value });
-          console.log("V1: ", e.target.value, "K: ", formSubmitted);
-        }}
-        />
-        </FormControl>
-        <FormControl>
-        <Input
-          className={classes.emailInput}
-          placeholder='Password'
-          type="password"
-          value={formSubmitted.password}
-          onChange={e => {
-            setFormSubmitted({...formSubmitted, password: e.target.value });
-          console.log("VALUE: ", e.target.value, "L: ", formSubmitted);}}
-        />
-        </FormControl>
-        <FormControl>
-        <Input
-          className={classes.passInput}
-          color="secondary"
-          type='submit'
-          onSubmit={e => console.log("DONE")}
-        >
-          Login
-        </Input>
-        </FormControl>
-        </form>
-        </div>)
-          : <Redirect to='/Home'/> )}/>
+          <UserContext.Provider value={{user, setUser}}>
+            <Route exact path='/'><Home /></Route>
 
-          <Route path='/Home'>
-            <Home userData={formSubmitted.user}/>
-          </Route>
+            {/* <Route path='/Home' component={Home} /> */}
 
-          <Route path='/Cart'>
-            <Cart userData={formSubmitted.user}/>
-          </Route>
+            <Route path='/Login'><Login /></Route>
 
-          <Route path='/ProductsPage'>
+            <Route path='/Cart'><Cart /></Route>
+
+          </UserContext.Provider>
+          {/* <Route path='/ProductsPage'>
             <ProductsPage userData={formSubmitted.user}/>
-          </Route>
+          </Route> */}
 
         </Router>
         </>

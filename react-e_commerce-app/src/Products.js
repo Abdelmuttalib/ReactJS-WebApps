@@ -10,20 +10,22 @@ const Products = ({ products }) => {
     console.log("How");
 
     const useStyles = makeStyles({
-        sectionContainer: {
-            color: 'red',
-            paddingTop: 20
-        }
+        root: {
+            padding: '2rem 0'
+        },
+        // sectionContainer: {
+        //     color: 'red',
+        // }
     });
 
     const classes = useStyles();
 
     return (
         <>
-        <Container maxWidth='lg' className={classes.sectionContainer}>
-          <Grid container spacing={2} alignItems="baseline">
+        <Container maxWidth='xl' className={classes.sectionContainer}>
+          <Grid className={classes.root} container  spacing={3} justify='center' alignItems="center">
             {products.map((product) => (
-            <Grid item xs={12} sm={12} md={4}>
+            <Grid item lg={4} xl={3}>
                 <Product 
                 key={product.id}
                 id={product.id}
